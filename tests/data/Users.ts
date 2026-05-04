@@ -1,4 +1,30 @@
+const firstName = 'Rafhana';
+const lastName = 'Test';
+
+export const generateNewUser = () => ({
+    name: `${firstName} ${lastName}`,
+    email: `testuser_${Date.now()}@gmail.com`
+})
+
+export const generateAccountData = () => ({
+    password: 'NewUser@1234',
+    firstName,
+    lastName,
+    address: '101 Kiteway Avenue',
+    country: 'Singapore',
+    state: 'Singapore',
+    city: 'Singapore',
+    zipcode: '121314',
+    mobileNumber: '81238234'
+})
+
+export const invalidEmailFormat = {
+    name: 'Rafhana Test', 
+    email: 'invalidemailformat.con'    
+}
+
 export const validUser = {
+    name: 'Rafhana Ramlee',
     email: 'ctrafhana@gmail.com',
     password: 'Hellomynameis@1212'
 }
@@ -13,11 +39,6 @@ export const invalidPasswordUser = {
     password: 'wrongpassword'    
 }
 
-export const generateNewUser = () => ({
-    name: 'Rafhana Test',
-    email: `testuser_${Date.now()}@gmail.com`,
-    password: 'NewUser@1234'
-})
 
 // Test Data Cleanup Process (In case generate new user is not the way to go)
 

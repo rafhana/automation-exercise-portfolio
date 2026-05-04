@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { LoginPage } from './pages/LoginPage';
-import { validUser, invalidEmailUser, invalidPasswordUser, generateNewUser } from './data/Users';
+import { validUser, invalidEmailUser, invalidPasswordUser, generateNewUser, generateAccountData } from './data/Users';
 
 
 test.describe ('Login Tests', () => {
@@ -78,11 +78,12 @@ test.describe ('Login Tests', () => {
 
         //Arrange
         const loginPage = new LoginPage(page);
-        const newUser = generateNewUser();
+        const newEmail = generateNewUser();
+        const newPassword = generateAccountData();
         await loginPage.goto();
 
         //Act
-        await loginPage.login( newUser.email, newUser.password);
+        await loginPage.login( newEmail.email, newPassword.password);
 
         //Assert
         await expect (loginPage.errorMessage).toBeVisible();
