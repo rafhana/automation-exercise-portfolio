@@ -44,6 +44,10 @@ jobs:
         allure_history: allure-history
         keep_reports: 30
 
+    - name: Remove root-owned .git left by allure-report-action
+      if: always()
+      run: sudo rm -rf allure-history/.git
+
     - name: Publish Allure report to GitHub Pages
       uses: peaceiris/actions-gh-pages@v4
       if: always()
