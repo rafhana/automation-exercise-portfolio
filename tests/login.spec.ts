@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from './fixtures';
 import { LoginPage } from './pages/LoginPage';
 import { validUser, invalidEmailUser, invalidPasswordUser, generateNewUser, generateAccountData } from './data/Users';
 
@@ -70,7 +70,7 @@ test.describe ('Login Tests', () => {
         await loginPage.login( invalidPasswordUser.email, invalidPasswordUser.password);
 
         //Assert
-        await expect (loginPage.errorMessage).toBeVisible();
+        await expect(page).toHaveURL(/\/login(?:[?#]|$)/);
         await expect(loginPage.errorMessage).toContainText ('Your email or password is incorrect!');
     });
 
@@ -86,7 +86,7 @@ test.describe ('Login Tests', () => {
         await loginPage.login( newEmail.email, newPassword.password);
 
         //Assert
-        await expect (loginPage.errorMessage).toBeVisible();
+        await expect(page).toHaveURL(/\/login(?:[?#]|$)/);
         await expect(loginPage.errorMessage).toContainText ('Your email or password is incorrect!');
     });
 });

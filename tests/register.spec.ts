@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from './fixtures';
 import { SignupPage } from './pages/SignupPage';
 import { AccountCreationPage } from './pages/AccountCreationPage';
 import { generateNewUser, generateAccountData, invalidEmailFormat, validUser} from './data/Users';

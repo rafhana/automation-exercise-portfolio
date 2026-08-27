@@ -16,11 +16,6 @@ export class CartPage {
     }
 
     async goto() {
-        // Block third-party ad network requests so ads never load and
-        // can't intercept clicks or corrupt URL assertions (e.g. #google_vignette)
-        await this.page.route(/doubleclick\.net|googlesyndication\.com|googleadservices\.com/, 
-            route => route.abort()
-        ); 
         
         await this.page.goto('https://automationexercise.com/products', {
             waitUntil: 'domcontentloaded'
