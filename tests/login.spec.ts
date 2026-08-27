@@ -15,7 +15,7 @@ test.describe ('Login Tests', () => {
 
         //Assert
         await expect (page).toHaveURL('https://automationexercise.com/');
-        await expect(page.locator('a:has-text("Logged in as")')).toBeVisible();
+        await expect(page.locator(`text=Logged in as ${validUser.name}`)).toBeVisible();
     });
 
     test ('LG-002 - User should not be able to login with empty password', async ({page}) => { 
